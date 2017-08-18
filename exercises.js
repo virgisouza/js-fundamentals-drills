@@ -47,7 +47,10 @@ function(x, y){
  * @param {String}
  * @return {Number}
  */
-var stringCount;
+var stringCount = function(str){
+  return str.length;
+}
+
 
 /* #arrayLength
  *
@@ -56,7 +59,9 @@ var stringCount;
  * @param {String}
  * @return {Number}
  */
-var arrayLength;
+var arrayLength = function(str){
+  return str.length;
+}
 
 /* #countAll
  *
@@ -65,7 +70,13 @@ var arrayLength;
  * @param {Array}
  * @return {Number}
  */
-var countAll;
+var countAll = function(x){
+  var num1 = 0;
+    for(var i = 0; i<x.length; i++){
+    num1 += x[i]
+  }
+  return num1;
+}
 
 /* #countStrings
  *
@@ -74,7 +85,14 @@ var countAll;
  * @param {Array}
  * @return {Array}
  */
-var countStrings;
+var countStrings = function(arr){
+  var x = [];
+  for(var i = 0; i<arr.length; i++){
+    x.push(arr[i].length);
+  }
+   return x;
+}
+
 
 /* #countAllStrings
  *
@@ -398,10 +416,10 @@ var tupleConvertToObject;
 module.exports = {
   doubleArray: doubleArray,
   sumArrays: sumArrays, 
-  stringCount: null,
-  arrayLength: null,
-  countAll: null,
-  countStrings: null,
+  stringCount: stringCount,
+  arrayLength: arrayLength,
+  countAll: countAll,
+  countStrings: countStrings,
   countAllStrings: null,
   convertToArray: null,
   objectSize: null,
