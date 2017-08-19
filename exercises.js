@@ -160,8 +160,10 @@ var createZeroFilledArray = function(num){
  * @param {Array}
  * @return {Array}
  */
-var poppedArray;
-
+var poppedArray= function(arr){
+   arr.pop();
+  return arr;
+}
 /* #splitString
  *
  * Takes in a string and returns an array of each individual character in the string.
@@ -169,7 +171,10 @@ var poppedArray;
  * @param {String}
  * @return {Array}
  */
-var splitString;
+var splitString = function (str){
+  return str.split("");
+
+}
 
 /* #lengthOfLast
  *
@@ -178,7 +183,11 @@ var splitString;
  * @param {String}
  * @return {Number}
  */
-var lengthOfLast;
+var lengthOfLast = function(str){
+  var x = str.pop();
+    return x.length
+  
+}
 
 /* #sumBelowTen
  *
@@ -187,8 +196,16 @@ var lengthOfLast;
  * @param {Array}
  * @return {Number}
  */
-var sumBelowTen;
-
+var sumBelowTen = function(arr){
+  var z = 0;
+  for(var i=0; i<arr.length; i++){
+    //console.log(arr[i]);
+    if(arr[i] <= 10){
+     z += arr[i]
+    }
+  }
+  return z;
+}
 /* #moreThanTenLetters
  *
  * Takes in an array of strings and returns the amount of elements that have more than ten letters.
@@ -196,7 +213,16 @@ var sumBelowTen;
  * @param {String}
  * @return {Number}
  */
-var moreThanTenLetters;
+
+var moreThanTenLetters= function(str){ 
+  var amtElem = 0;
+  for(var i = 0; i<str.length; i++){
+     if(str[i].length > 10){
+      amtElem += 1;
+     }
+  }
+  return amtElem;
+}
 
 /* #multiplyAll
  *
@@ -205,7 +231,17 @@ var moreThanTenLetters;
  * @param {Array}
  * @return {Number}
  */
-var multiplyAll;
+
+ var elem = [1,2,3,4,5];
+
+var multiplyAll = function(arr){
+ var quotient = arr.reduce(function(total, num){
+   return total * num;
+ })
+  return quotient;
+}
+
+console.log(multiplyAll(elem))
 
 /* #getKeys
  *
@@ -214,7 +250,11 @@ var multiplyAll;
  * @param {Object}
  * @return {Array}
  */
-var getKeys;
+
+var getKeys = function(obj){
+  var arr = Object.keys(obj);
+  return arr;
+};
 
 /* #sumAllPositive
  *
@@ -223,7 +263,15 @@ var getKeys;
  * @param {String}
  * @return {Number}
  */
-var sumAllPositive;
+var sumAllPositive = function(str){
+  var total = 0;
+  for(var i = 0; i<str.length; i++){
+    if(str[i] > 0){
+       total +=  str[i];
+}
+  }
+  return total;
+}
 
 /* #stringCountBelowThree
  *
@@ -232,7 +280,16 @@ var sumAllPositive;
  * @param {Array}
  * @return {Number}
  */
-var stringCountBelowThree;
+
+var stringCountBelowThree = function(arr){
+  var x = 0;
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i].length <= 3){
+      x+= 1;
+    }
+  }
+  return x
+}
 
 /* #countObjects
  *
@@ -447,15 +504,15 @@ module.exports = {
   convertToArray: convertToArray,
   objectSize: objectSize,
   createZeroFilledArray: createZeroFilledArray,
-  poppedArray: null,
-  splitString: null,
-  lengthOfLast: null,
-  sumBelowTen: null,
-  moreThanTenLetters: null,
-  multiplyAll: null,
-  getKeys: null,
-  sumAllPositive: null,
-  stringCountBelowThree: null,
+  poppedArray: poppedArray,
+  splitString: splitString,
+  lengthOfLast: lengthOfLast,
+  sumBelowTen: sumBelowTen,
+  moreThanTenLetters: moreThanTenLetters,
+  multiplyAll: multiplyAll,
+  getKeys: getKeys,
+  sumAllPositive: sumAllPositive,
+  stringCountBelowThree: stringCountBelowThree,
   countObjects: null,
   getObjectKeys: null,
   getObjectValues: null,
