@@ -513,7 +513,12 @@ var arraysToObject = function(keyArr, valueArr){
  * @param {Object}
  * @return {Array}
  */
-var objectsToTuples;
+
+var objectsToTuples = function(obj1, obj2){
+  var arr1 = Object.entries(obj1);
+  var arr2 = Object.entries(obj2);
+  return arr1.concat(arr2)
+}
 
 /* #mapArrayValues
  *
@@ -522,7 +527,16 @@ var objectsToTuples;
  * @param {Array}
  * @return {Object}
  */
-var mapArrayValues;
+
+var mapArrayValues = function(arr){
+  var obj = {};
+  for(var i = 0; i<arr.length; i++){
+    var keys = arr[i];
+    var values = true;
+    obj[keys] = values
+  }
+  return obj
+}
 
 /* #mapStringCounts
  *
@@ -533,7 +547,19 @@ var mapArrayValues;
  * @param {Array}
  * @return {Object}
  */
-var mapStringCounts;
+var mapStringCounts = function(arr){
+  var obj = {};
+  for(var i = 0; i<arr.length; i++){
+    var keys = arr[i]
+    if(keys.length >= 5){
+      var values = true;
+    }else{
+      var values = false;
+    }
+    obj[keys] = values;
+  }
+  return obj
+}
 
 /* #arrayToObjectNums
  *
@@ -543,7 +569,15 @@ var mapStringCounts;
  * @param {Array}
  * @return {Object}
  */
-var arrayToObjectNums;
+var arrayToObjectNums = function(arr){
+  var obj = {}
+  for(var i = 0; i<arr.length; i++){
+    var keys = arr[i];
+    var values = true;
+    obj[keys] = values;
+  }
+  return obj
+}
 
 /* #stringToKeys
  *
@@ -618,11 +652,11 @@ module.exports = {
   arrayToObject: arrayToObject,
   arraysToObject: arraysToObject,
   objectsToTuples: objectsToTuples,
-  mapArrayValues: null,
-  mapStringCounts: null,
-  arrayToObjectNums: null,
-  stringToKeys: null,
-  charCountMap: null,
-  frequencyMap: null,
-  tupleConvertToObject: null
+  mapArrayValues: mapArrayValues,
+  mapStringCounts: mapStringCounts,
+  arrayToObjectNums: arrayToObjectNums,
+  stringToKeys: stringToKeys,
+  charCountMap: charCountMap,
+  frequencyMap: frequencyMap,
+  tupleConvertToObject: tupleConvertToObject
 }
