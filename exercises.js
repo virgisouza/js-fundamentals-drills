@@ -586,7 +586,18 @@ var arrayToObjectNums = function(arr){
  * @param {String}
  * @return {Object}
  */
-var stringToKeys;
+
+var stringToKeys = function(str){
+  var obj = {}
+  var elem = str.split("");
+  for(var i = 0; i<elem.length; i++){
+    var keys = elem[i];
+    var values = true;
+    obj[keys] = values;
+  }
+  return obj
+}
+
 
 /* #charCountMap
  *
@@ -596,7 +607,15 @@ var stringToKeys;
  * @param {Array}
  * @return {Object}
  */
-var charCountMap;
+var charCountMap = function(arr){
+  var obj = {}
+  for(var i = 0; i<arr.length; i++){
+    var keys = arr[i];
+    var values = arr[i].length;
+    obj[keys] = values;
+  }
+  return obj
+}
 
 /* #frequencyMap
  *
@@ -605,7 +624,15 @@ var charCountMap;
  * @param {String}
  * @return {Bool}
  */
-var frequencyMap;
+
+var frequencyMap = function(str){
+  var obj = {};
+  for(var i = 0; i<str.length; i++){
+   obj[str[i]] = (obj[str[i]] || 0) + 1;
+    
+  }
+  return obj
+}
 
 /* #tupleConvertToObject
  *
@@ -615,7 +642,19 @@ var frequencyMap;
  * @param {String}
  * @return {Bool}
  */
-var tupleConvertToObject;
+ 
+var tupleConvertToObject = function(str){
+  var obj = {}
+  for(var i= 0; i<str.length; i++){
+    for(var j = 0; j<str[i].length; j++){
+      var key = str[i][0];
+      var value = str[i][1];
+         obj[key] = value;
+    }
+   
+        }
+  return obj;
+}
 
 
 module.exports = {
